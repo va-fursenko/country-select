@@ -1,75 +1,39 @@
-var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    sourcemaps = require('gulp-sourcemaps'),
-    vueify = require('gulp-vueify'),
-    babel = require('gulp-babel');
-    fs = require('fs');
+process.env.DISABLE_NOTIFIER = true;
 
-var srcPath = './src',
-    libPath = '../node_modules',
-    distPath = './dist',
-    examplePath = './example/';
+let elixir = require('laravel-elixir');
 
-// Component pack
-gulp.task('component', function () {
-    gulp.src([
-        srcPath + '/img/**/*'
-    ])
-    .pipe(gulp.dest(distPath + '/img'));
+require("laravel-elixir-webpack-official");
+require('laravel-elixir-vue');
 
-    return gulp.src([
-        srcPath + '/**/*.js',
-        srcPath + '/**/*.vue'
-    ])
-    .pipe(vueify())
-    .pipe(babel({
-        presets: ['es2015']
-    }))
-    .pipe(sourcemaps.init())
-    .pipe(uglify({
-        compress: {
-            drop_debugger: false
-        }
-    }))
-    .pipe(concat('vue-country-select.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(distPath));
-});
+elixir.config.sourcemaps = true;
 
-// JS pack
-gulp.task('js', function () {
-    // Custom js
-    gulp.src([
-        examplePath + '/js/*.js'
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(uglify({
-        compress: {
-            drop_debugger: false
-        }
-    }))
-    .on('error', function (err) {
-        console.log(err);
-    })
-    .pipe(concat('app.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(examplePath + '/assets/js'));
+let
+    srcPath = './src',
+    distPath = './dist';
 
+/**
+ * Run elixir
+ */
+elixir(function(mix) {
 
-    // Libs js
-    gulp.src([
-        libPath + '/vue/dist/vue.min.js',
-        distPath + '/vue-country-select.js',
-    ])
-    .pipe(concat('lib.js'))
-    .pipe(gulp.dest(examplePath + '/assets/js'));
-});
+    /*
+     * Pack component
+     */
 
-// Flags images
-gulp.task('img', function () {
-    gulp.src([
-        distPath + '/img/**/*'
-    ])
-    .pipe(gulp.dest(examplePath + '/assets/img'));
+    // Pack component to js file
+    mix.webpack(
+        [
+            srcPath + '/**/*.js',
+            srcPath + '/**/*.vue'
+        ],
+        distPath + '/vue-country-select.js'
+    );
+
+    // Copy flags images to dist
+    mix.copy(
+        [
+            srcPath + '/img/**'
+        ],
+        distPath + '/img'
+    );
 });
