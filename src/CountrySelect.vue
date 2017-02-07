@@ -79,8 +79,8 @@
 </template>
 
 <script lang="babel">
-    import { Country } from '../models/country';
-    import { App } from '../common/app';
+    import { Country } from './models/country';
+    import { App } from './common/app';
 
     /* Custom component event */
     const EVENT_DROP_DOWN_SHOW = 'drop-down-show';
