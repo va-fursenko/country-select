@@ -1,7 +1,7 @@
 <template>
     <div class="country-select__container">
 
-        <div class="country-select__input-container">
+        <div ref="inputContainer" class="country-select__input-container">
             <input
                 type="text"
                 class="country-select__input"
@@ -345,6 +345,10 @@
         created () {
             this.selected = this.findCountry(this.value);
             this.caption = this.selected.name;
+            Vue.nextTick(() => {
+                console.log('>>', this.$refs.dropDown.style.width, this.$refs.inputContainer.getBoundingClientRect());
+                this.$refs.dropDown.style.width = this.$refs.inputContainer.getBoundingClientRect().width + 'px';
+            });
         },
 
         // Component mounted event handler
@@ -364,6 +368,9 @@
     div.country-select__container {
         display: inline-block;
         height: 34px;
+    }
+    div.country-select__container * {
+        font-family: Arial;
     }
 
     /* Text input container */
@@ -427,7 +434,7 @@
 
     /* Country flag in drop down list */
     img.country-select__flag {
-        margin: 3px 6px 1px 1px;
+        margin: 5px 6px 1px 1px;
     }
 
     /* Drop down list option block */
@@ -444,6 +451,9 @@
         border: 1px solid transparent;
         border-radius: 2px;
         cursor: pointer;
+    }
+    div.country-select__drop-down > div > span {
+        margin-bottom: 4px;
     }
 
     div.country-select__drop-down > div.country-select__selected,
