@@ -144,18 +144,12 @@
         data () {
             return {
                 // Public properties
-                countries: [],
-                value: '',
                 selected: Country.getEmpty(),
 
                 // Component HTML options
-                id: '',
                 caption: '',
-                title: '',
-                placeholder: '',
 
                 // Component settings
-                allowEmpty: false,
                 dropDownLimit: 0,
 
                 // Inner properties
@@ -384,7 +378,7 @@
         position: relative;
         display: block;
         min-width: 250px;
-        padding: 6px 22px 6px 39px;
+        padding: 0 22px 0 39px;
         font-size: 14px;
         line-height: 1.42857143;
         color: #555;

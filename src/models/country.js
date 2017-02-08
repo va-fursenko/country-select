@@ -46,7 +46,7 @@ export const Country = {
      * @return string
      */
     getFlagSrc (id, size = 16) {
-        return '/img/flags/' + size + '/' +
+        return './assets/img/flags/' + size + '/' +
             (id ? id.toString().toLowerCase() : 'empty') + '.png';
     }
 };

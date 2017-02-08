@@ -9,7 +9,8 @@ elixir.config.sourcemaps = true;
 
 let
     srcPath = './src',
-    distPath = './dist';
+    examplePath = './example',
+    npmPath = './node_modules';
 
 /**
  * Run elixir
@@ -23,10 +24,11 @@ elixir(function(mix) {
     // Pack component to js file
     mix.webpack(
         [
-            srcPath + '/**/*.js',
-            srcPath + '/**/*.vue'
+            srcPath + '/**/**/*.js',
+            srcPath + '/**/**/*.vue',
+            examplePath + '/example.js',
         ],
-        distPath + '/vue-country-select.js'
+        examplePath + '/assets/js/app.js'
     );
 
     // Copy flags images to dist
@@ -34,6 +36,14 @@ elixir(function(mix) {
         [
             srcPath + '/img/**'
         ],
-        distPath + '/img'
+        examplePath + '/assets/img'
+    );
+
+    // Pack specified libs to lib.js
+    mix.scripts(
+        [
+            npmPath + '/vue/dist/vue.js'
+        ],
+        examplePath + '/assets/js/lib.js'
     );
 });
