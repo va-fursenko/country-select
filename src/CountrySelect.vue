@@ -346,8 +346,7 @@
             this.selected = this.findCountry(this.value);
             this.caption = this.selected.name;
             Vue.nextTick(() => {
-                console.log('>>', this.$refs.dropDown.style.width, this.$refs.inputContainer.getBoundingClientRect());
-                this.$refs.dropDown.style.width = this.$refs.inputContainer.getBoundingClientRect().width + 'px';
+                this.$refs.dropDown.style.width = this.$refs.inputContainer.getBoundingClientRect().width - 4 + 'px';
             });
         },
 
@@ -367,7 +366,7 @@
     /* Component container */
     div.country-select__container {
         display: inline-block;
-        height: 34px;
+        height: 36px;
     }
     div.country-select__container * {
         font-family: Arial;
@@ -434,7 +433,7 @@
 
     /* Country flag in drop down list */
     img.country-select__flag {
-        margin: 5px 6px 1px 1px;
+        margin: 0 6px 0 1px;
     }
 
     /* Drop down list option block */
@@ -451,9 +450,8 @@
         border: 1px solid transparent;
         border-radius: 2px;
         cursor: pointer;
-    }
-    div.country-select__drop-down > div > span {
-        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
     }
 
     div.country-select__drop-down > div.country-select__selected,

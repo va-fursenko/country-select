@@ -46,4 +46,20 @@ elixir(function(mix) {
         ],
         examplePath + '/assets/js/lib.js'
     );
+
+    // Pack CSS to lib.css
+    mix.styles(
+        [
+            npmPath + '/font-awesome/css/font-awesome.css',
+        ],
+        examplePath + '/assets/css/lib.css'
+    );
+
+    // Copy fonts
+    mix.copy(
+        [
+            npmPath + '/font-awesome/fonts/**'
+        ],
+        examplePath + '/assets/fonts'
+    );
 });
