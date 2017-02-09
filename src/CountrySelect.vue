@@ -368,7 +368,7 @@
         display: inline-block;
         height: 36px;
     }
-    div.country-select__container * {
+    div.country-select__drop-down > div > span {
         font-family: Arial;
     }
 
@@ -409,8 +409,9 @@
         float: right;
         position: relative;
         display: block;
-        top: -24px;
+        top: -26px;
         left: -10px;
+        color: #555;
     }
 
     /* Drop down list container */
