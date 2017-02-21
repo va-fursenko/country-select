@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="./assets/css/lib.css">
 </head>
 <body>
-    HELLO
-
     <div id="root-container">
-        {{ text }}: &nbsp;
+        Выберите страну: &nbsp;
 
         <country-select
-            :countries="countries"
             placeholder="Выберите страну"
+            :countries="countries"
+            v-model="selectedCountry"
         >
         </country-select>
+
+        <p>Значение: {{ selectedCountry }}</p>
     </div>
 
     <!-- JS scripts -->

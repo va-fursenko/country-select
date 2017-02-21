@@ -12,6 +12,7 @@
                 v-model="caption"
                 @click="toggleDropDown(true, false)"
                 @keydown.char="toggleDropDown(true, true)"
+                @keydown.delete="toggleDropDown(true, true)"
                 @keydown.esc="toggleDropDown(false)"
                 @keydown.enter="trySelectCountry()"
                 @keydown.up="hoverNextCountry(false)"
@@ -288,12 +289,12 @@
                 if (this.droppedDown.length > 0) {
                     let index = this.dropDownHoveredIndex !== null ? this.dropDownHoveredIndex : 0;
                     this.selectCountry(this.droppedDown[index]);
+                // Try select empty country if it's allowed
                 } else if (this.allowEmpty) {
                     this.selectCountry(null);
                 // If typed incorrect country name, select last valid country or empty country object
                 } else {
-                    this.caption = this.selected.name;
-                    this.value = this.selected.id;
+                    this.selectCountry(this.selected);
                 }
             },
 
