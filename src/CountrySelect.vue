@@ -380,7 +380,7 @@
 
     /* Text input */
     input.country-select__input {
-        height: 34px;
+        height: 33px;
         position: relative;
         display: block;
         min-width: 250px;
