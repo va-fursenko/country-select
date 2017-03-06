@@ -272,11 +272,10 @@
                 if (!country) {
                     country = Country.getEmpty();
                 }
-                this.value = country.id;
+                // Dispatch new input event with new value
+                this.$emit('input', country.id);
                 this.caption = country.name;
                 this.selected = country;
-                // Dispatch new input event with new value
-                this.$emit('input', this.value);
             },
 
             /**
@@ -337,7 +336,7 @@
         // Caption change watcher
         watch: {
             // After caption changing droppedDown countries should be alike
-            caption (value) {
+            caption (newValue) {
                 this.dropDownByCaption = true;
             }
         },
