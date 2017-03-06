@@ -61,7 +61,7 @@ elixir(function(mix) {
     // Copy flags images to dist
     mix.copy(
         [
-            srcPath + '/img/**/*'
+            srcPath + '/img/**/**'
         ],
         assetsPath + '/img'
     );
