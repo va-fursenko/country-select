@@ -369,10 +369,6 @@
         display: inline-block;
         height: 36px;
     }
-    div.country-select__drop-down > div > span {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 14px;
-    }
 
     /* Text input container */
     div.country-select__input-container {
@@ -387,9 +383,7 @@
         display: block;
         min-width: 250px;
         padding: 0 22px 0 39px;
-        font-size: 14px;
         line-height: 1.42857143;
-        color: #555;
         background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -482,4 +476,11 @@
         text-align: center;
     }
 
+    /* Text style */
+    div.country-select__drop-down > div > span,
+    input.country-select__input {
+        font-family: inherit;
+        font-size: 14px;
+        color: #555;
+    }
 </style>
