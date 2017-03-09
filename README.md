@@ -5,7 +5,7 @@ Country select VueJS2 component.
 
 [Пример (Example)](http://insbor.ru/vue/country-select/ "Component example")
 
-![Пример (example)](http://insbor.ru/vue/country-select/assets/img/country-select-example.png "Пример (example)")
+![Пример (example)](https://raw.githubusercontent.com/va-fursenko/country-select/master/example/country-select-example.png "Пример (example)")
 
 ```html
 <country-select
