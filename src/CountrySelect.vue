@@ -29,7 +29,7 @@
                     'fa-chevron-down': !isDroppedDown,
                       'fa-chevron-up': isDroppedDown
                 }"
-                :title="(isDroppedDown ? 'Hide' : 'Show') + ' drop down countries list'"
+                :title="(isDroppedDown ? 'Скрыть' : 'Показать') + ' список стран'"
                 @click="toggleDropDown(!isDroppedDown, false); $refs.input.focus()"
             ></div>
         </div>
