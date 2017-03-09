@@ -9,10 +9,10 @@ Country select VueJS2 component.
 
 ```html
 <country-select
-        v-model="selectedCountry"
-        :countries="countries"
-        :allow-empty="true"
-        placeholder="Выберите страну"
+    v-model="selectedCountry"
+    :countries="countries"
+    :allow-empty="true"
+    placeholder="Выберите страну"
 >
 </country-select>
 ```
@@ -28,4 +28,5 @@ Country select VueJS2 component.
 ]
 ```
 По символьному ID получается адрес изображения с флагом. 
+
 Например, для России - `/assets/img/flags/{ширина в пикселях}/RU.png`
