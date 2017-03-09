@@ -8,7 +8,8 @@ new Vue({
     },
 
     data: {
-        selectedCountry: null,
+        selectedCountry0: null,
+        selectedCountry1: null,
         countries: [
             {id:"AB", name:"Абхазия"},
             {id:"AU", name:"Австралия"},

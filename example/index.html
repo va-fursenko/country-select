@@ -10,19 +10,44 @@
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
+
+        .row {
+            margin-bottom: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
     </style>
 
     <div id="root-container">
-        Выберите страну: &nbsp;
+        <div class="row">
+            <label>Выберите страну:</label>
 
-        <country-select
-            placeholder="Выберите страну"
-            :countries="countries"
-            v-model="selectedCountry"
-        >
-        </country-select>
+            <country-select
+                placeholder="Выберите страну"
+                :countries="countries"
+                v-model="selectedCountry0"
+            >
+            </country-select>
 
-        <p>Значение: {{ selectedCountry }}</p>
+            <p>Значение: {{ selectedCountry0 }}</p>
+        </div>
+
+        <div class="row">
+            <label>Выберите страну или оставьте поле пустым:</label>
+
+            <country-select
+                    placeholder="Выберите страну"
+                    :countries="countries"
+                    v-model="selectedCountry1"
+                    :allow-empty="true"
+            >
+            </country-select>
+
+            <p>Значение: {{ selectedCountry1 }}</p>
+        </div>
     </div>
 
     <!-- JS scripts -->
