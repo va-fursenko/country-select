@@ -83,10 +83,6 @@
     import { Country } from './models/country';
     import { App } from './common/app';
 
-    /* Custom component event */
-    const EVENT_DROP_DOWN_SHOW = 'drop-down-show';
-    const EVENT_DROP_DOWN_HIDE = 'drop-down-hide';
-
     Vue.config.keyCodes = {
         char: [
             // space
@@ -163,6 +159,18 @@
         // Computed properties
         computed: {
             /**
+             * Possible component's custom events
+             *
+             * @return {Object}
+             */
+            events () {
+                return {
+                    DROP_DOWN_SHOW: 'drop-down-show',
+                    DROP_DOWN_HIDE: 'drop-down-hide'
+                };
+            },
+
+            /**
              * Get dropped down countries list
              */
             droppedDown () {
@@ -229,15 +237,14 @@
                     // Add global document click listener to handle focus lose event
                     document.addEventListener('click', this.documentClickHandler);
                     // Dispatch custom component event
-                    this.$emit(EVENT_DROP_DOWN_SHOW);
-                    //this.$refs.dropDown.dispatchEvent(new Event(EVENT_DROP_DOWN_SHOW));
+                    this.$emit(this.events.DROP_DOWN_SHOW);
                 // Hide drop down list
                 } else {
                     // Remove global document click listener
                     document.removeEventListener('click', this.documentClickHandler);
                     this.dropDownHoveredIndex = null;
                     // Dispatch custom component event
-                    this.$emit(EVENT_DROP_DOWN_HIDE);
+                    this.$emit(this.events.DROP_DOWN_HIDE);
                     //this.$refs.dropDown.dispatchEvent(new Event(EVENT_DROP_DOWN_HIDE));
                 }
                 this.isDroppedDown = dropDown;
