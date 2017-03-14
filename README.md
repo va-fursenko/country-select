@@ -30,3 +30,11 @@ Country select VueJS2 component.
 По символьному ID получается адрес изображения с флагом. 
 
 Например, для России - `/assets/img/flags/{ширина в пикселях}/RU.png`
+
+При открытии и закрытии выпадающего списка стран вызываются следующие события `this.events`:
+```js
+    {
+        DROP_DOWN_SHOW: 'drop-down-show',
+        DROP_DOWN_HIDE: 'drop-down-hide'
+    }
+```
