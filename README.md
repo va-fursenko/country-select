@@ -3,7 +3,7 @@
  
 Country select VueJS2 component.
 
-[Пример (Example)](http://insbor.ru/vue/country-select/ "Component example")
+[Пример (Example)](http://insbor.ru/vue/country-select/index.html "Component example")
 
 ![Пример (example)](https://raw.githubusercontent.com/va-fursenko/country-select/master/example/country-select-example.png "Пример (example)")
 
